@@ -1,4 +1,6 @@
 class VendorsController < ApplicationController
+  before_action :authenticate_user!
+
   before_action :set_vendor, only: [:show, :edit, :update, :destroy]
 
   # GET /vendors
@@ -48,7 +50,11 @@ class VendorsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_vendor
-      @vendor = Vendor.find(params[:id])
+      begin
+        @vendor = Vendor.find(params[:id])
+      rescue => e
+        render json: e, status: :unprocessable_entity
+      end
     end
 
     # Only allow a trusted parameter "white list" through.
