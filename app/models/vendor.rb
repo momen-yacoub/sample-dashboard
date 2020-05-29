@@ -7,4 +7,6 @@ class Vendor < ApplicationRecord
     with: /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/,
     message: 'Wrong phone format'
   }
+
+  has_many :products
 end
