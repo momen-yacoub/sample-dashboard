@@ -1,5 +1,7 @@
-<h1>New Product</h1>
+<div>  
+  <h1>New Product</h1>
 
-<%= render 'form', product: @product, url: vendor_products_path(vendor_id: params[:vendor_id])%>
+  <%= render 'form', product: @product, url: vendor_products_path(vendor_id: params[:vendor_id])%>
 
-<%= link_to 'Back', vendor_products_path(vendor_id: params[:vendor_id]) %>
+  <%= link_to 'Back', vendor_products_path(vendor_id: params[:vendor_id]) %>
+</div>

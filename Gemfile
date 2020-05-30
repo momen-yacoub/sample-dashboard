@@ -28,6 +28,8 @@ gem 'active_model_serializers', '0.10.0.rc4'
 
 gem 'devise', '~> 4.7', '>= 4.7.1'
 
+gem 'foundation-rails', '~> 6.6', '>= 6.6.2.0'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
