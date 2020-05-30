@@ -17,7 +17,7 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
-        <td><%= product.vendor_id %></td>
+        <td><%= product.vendor&.name %></td>
         <td><%= product.price %></td>
         <td><%= product.quantity %></td>
         <td><%= link_to 'Show', vendor_product_path(vendor_id: product.vendor_id, id: product.id) %></td>
