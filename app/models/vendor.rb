@@ -8,5 +8,5 @@ class Vendor < ApplicationRecord
     message: 'Wrong phone format'
   }
 
-  has_many :products
+  has_many :products, dependent: :destroy
 end
