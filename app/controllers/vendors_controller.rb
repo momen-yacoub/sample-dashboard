@@ -5,11 +5,13 @@ class VendorsController < ApplicationController
 
   # GET /vendors
   def index
-    @vendors = Vendor.all
+    @vendors = Vendor.all.includes(:products)
+    render json: @vendors
   end
 
   # GET /vendors/1
   def show
+    # render json: @vendor
   end
 
   # GET /vendors/new
