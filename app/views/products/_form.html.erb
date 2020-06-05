@@ -31,6 +31,11 @@
     <%= form.number_field :quantity %>
   </div>
 
+  <div class="field">
+    <%= form.label :uploaded_file %>
+    <%= form.file_field :uploaded_files, multiple: true %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

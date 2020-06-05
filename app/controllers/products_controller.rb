@@ -5,11 +5,12 @@ class ProductsController < ApplicationController
   # GET /products
   def index
     @products = @vendor.products.all.includes(:vendor)
-    # render json: @products
+    render json: @products if request.env['PATH_INFO'].split('/')[1] == "api"
   end
 
   # GET /products/1
   def show
+    render json: @product if request.env['PATH_INFO'].split('/')[1] == "api"
   end
 
   # GET /products/new
@@ -63,6 +64,6 @@ class ProductsController < ApplicationController
       if params[:product][:vendor_id].blank?
         params[:product][:vendor_id] = params[:vendor_id]
       end
-      params.require(:product).permit(:name, :vendor_id, :price, :quantity)
+      params.require(:product).permit(:name, :vendor_id, :price, :quantity, uploaded_files: []  )
     end
 end

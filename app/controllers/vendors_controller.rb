@@ -6,12 +6,12 @@ class VendorsController < ApplicationController
   # GET /vendors
   def index
     @vendors = Vendor.all.includes(:products)
-    render json: @vendors
+    render json: @vendors if request.env['PATH_INFO'].split('/')[1] == "api"
   end
 
   # GET /vendors/1
   def show
-    # render json: @vendor
+    render json: @vendor if request.env['PATH_INFO'].split('/')[1] == "api"
   end
 
   # GET /vendors/new

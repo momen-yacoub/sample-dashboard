@@ -20,5 +20,15 @@
   <%= @product.quantity %>
 </p>
 
+<p>
+  <strong>Uploaded Files:</strong> | <strong>count: <%= @product.uploaded_files.size %> </strong>
+  <% @product.uploaded_files.each do |uploaded_file| %>
+  <p>
+    <strong>Uploaded Files:</strong>
+    <%= link_to uploaded_file.name, uploaded_file, download:true %>
+  </p>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_vendor_product_path(vendor_id: @product.vendor_id, id: @product.id) %> |
 <%= link_to 'Back', vendor_products_path(vendor_id: @product.vendor_id) %>
